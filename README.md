@@ -4,41 +4,40 @@
 
 
 ![alt text](https://i.imgur.com/1yX3NAx.png)
-# Только 3.11.6 Python-версия
+Version 3.11.6 of Python
+config.py
+SITE_KEY - SITEKEY for solving Twitter captcha when unfreezing an account, do not change
+SITE_URL - SITEURL for Twitter account unfreezing, do not change
+FIRSTCAPTCHA_API_KEY - API KEY from https://1stcaptcha.com/ (make sure to top up the balance)
+CHANGE_PROXY_URL - Link for changing IP when using mobile proxies with link change
+REPEATS_ATTEMPTS - Number of attempts to repeat the script execution in case of errors
+SOLVE_CAPTCHA_ATTEMPTS - Number of attempts to solve the captcha
+UNAUTHORIZED_ATTEMPTS - Number of attempts to retry actions in case of Unauthorized errors
+SLEEP_BETWEEN_TASKS - Sleep time between task execution (e.g., 1, 5, 10 // range, e.g., 1-5, 5-7, 2-6)
+SLEEP_AFTER_PROXY_CHANGING - Sleep time after changing the Proxy
+GM_PHRASES_LIST - List of phrases for commenting on GM posts
 
-### config.py  
-**SITE_KEY** - _SITEKEY для решения капчи Twitter при разморозке аккаунта, не менять_  
-**SITE_URL** - _SITEURL Twitter для разморозки аккаунта, не менять_  
-**FIRSTCAPTCHA_API_KEY** - _API KEY с https://1stcaptcha.com/ (не забудьте пополнить баланс)_  
-**CHANGE_PROXY_URL** - _Ссылка для смены IP при использовании мобильных прокси со сменой по ссылке_  
-**REPEATS_ATTEMPTS** - _Количество попыток для повторения выполнения скрипта в случае ошибки_
-**SOLVE_CAPTCHA_ATTEMPTS** - _Количество попыток решить капчу_
-**UNAUTHORIZED_ATTEMPTS** - _Количество попыток повторого выполнения действий при ошибке Unauthorized_  
-**SLEEP_BETWEEN_TASKS** - _Время сна между выполнением заданий MEME (число, ex: 1, 5, 10 // диапазон, ex: 1-5, 5-7, 2-6)_  
-**SLEEP_AFTER_PROXY_CHANGING** - _Время сна после смены Proxy_  
-**GM_PHRASES_LIST** - _Список фраз для отправки комментария под GM-постом_
+accounts.txt
+Fill in the auth_token's of the accounts, each on a new line
 
-### accounts.txt  
-_Заполняем **auth_token**'s от аккаунтов, каждый с новой строки_  
+private_keys.txt
+Private keys from wallets to link to accounts (if desired, link your own wallets. You can leave the file empty - the software will register wallets and link them to accounts automatically)
 
-### private_keys.txt  
-_Приват-ключи от кошельков, которые привязывать к аккаунтам (при желании привязывать собственные кошельки. Можно оставить файл пустым - тогда софт будет сам регистрировать кошельки и привязывать их к аккаунту)_  
+proxies.txt
+List of proxies (you can insert a single mobile proxy, the software will randomly select from the file). Format - type://user:pass@ip:port // type://ip:port
 
-### proxies.txt  
-_Список прокси (можно вставить одну мобильную, софт берет рандомно из файла). Формат - type://user:pass@ip:port // type://ip:port_  
+log files
+empty_attempts.txt - a file with account tokens for which retry attempts have been exhausted (see config.py -> REPATS_COUNT)
+registered.txt - file of successfully registered accounts
+suspended_accounts.txt - file of account tokens blocked on Twitter
+account_too_new.txt - File of account tokens that do not meet the parameters
+unauthorized_accounts.txt - File of account tokens with Unauthorized error
+forbidden_accounts.txt - File of account tokens with Forbidden error
+http_exceptions.txt - File of account tokens with HTTP Exception error
+unexpected_errors.txt - File of account tokens with unexpected errors
 
-### log files  
-_**empty_attemps.txt** - файл с токенами аккаунтов, попытки для повтора которых закончились (см config.py -> REPATS_COUNT)_  
-_**registered.txt** - файл успешно зарегистрированных аккаунтов_  
-_**suspended_accounts.txt** - файл токенов аккаунтов, заблокированных в Twitter_  
-_**account_too_new.txt** - Файл токенов аккаунтов, не подходящих по параметрам_
-_**unauthorized_accounts.txt** - Файл токенов аккаунтов с ошибкой Unauthorized_  
-_**forbidden_accounts.txt** - Файл токенов аккаунтов с ошибкой Forbidden_  
-_**http_exceptions.txt** - Файл токенов аккаунтов с ошибкой HTTP Exception_  
-_**unexpected_errors.txt** - Файл токенов аккаунтов с непредвиденными ошибками_  
+errors
+Q: SSL: CERTIFICATE_VERIFY_FAILED
+A: MAC: open /Applications/Python\ 3.11/Install\ Certificates.command
 
-### errors  
-**Q: _SSL: CERTIFICATE_VERIFY_FAILED_**  
-**A: _MAC: open /Applications/Python\ 3.11/Install\ Certificates.command_**
-
-# DONATE (_any evm_) - 0xDEADf12DE9A24b47Da0a43E1bA70B8972F5296F2
+DONATE (any EVM) - 0xbE7F99B30051b52B489381e939665C0eA9f4f3A6
